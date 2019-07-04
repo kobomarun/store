@@ -5,7 +5,6 @@ import './App.css';
 
 import TopBar from './components/TopBar';
 import NavBar from './components/NavBar';
-import Banner from './components/Banner'
 import ProductList from './components/ProductList';
 import SideBar from './components/SideBar';
 import Cart from './components/Cart';

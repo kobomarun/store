@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ProductConsumer } from '../store';
 
 const NavBar = () => {
     return (
@@ -7,27 +9,31 @@ const NavBar = () => {
                 <div className="mainNav">
                     <div className="container ">
                         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                            <a className="navbar-brand logo" href="/">Shopmate</a>
+                            <Link className="navbar-brand logo" to="/">Shopmate</Link>
                             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>
                             </button>
+                            <ProductConsumer>
+                                {value => {
+                                    console.log('dep', value.departments)
+                                    return (
+                                        value.departments.map(menu => {
+                                            return (
+                                                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                                                    <ul className="navbar-nav mr-auto menu">
+                                                        <li className="nav-item ">
+                                                            <Link className="nav-link" to="#">{menu.name} <span className="sr-only">(current)</span></Link>
+                                                        </li>
+                                                    </ul>
+                                                </div>
 
-                            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul className="navbar-nav mr-auto menu">
-                                    <li className="nav-item ">
-                                        <a className="nav-link" href="#">Women <span className="sr-only">(current)</span></a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">Men</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">Kids</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">Shoes</a>
-                                    </li>
-                                </ul>
-                            </div>
+                                            )
+                                        })
+
+                                    )
+                                }}
+
+                            </ProductConsumer>
                         </nav>
                     </div>
                 </div>

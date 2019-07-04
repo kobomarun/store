@@ -111,3 +111,7 @@
 .sizes  li:hover {
   background: var(--mainRed)
 }
+
+.p_description {
+  width:400px;
+}
