@@ -1,33 +1,113 @@
-.App {
+:root {
+  --mainBlue:#223763;
+  --mainWhite:#f3f3f3;
+  --mainRed:#e83f1e;
+  --mainBlack:#343a40;
+}
+
+.topbar {
+  background: mainWhite;
+  font-size: 16px;
+}
+
+.topbar ul {
+  display: block
+}
+
+.topbar ul li {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  float: left;
+  margin-right: 15px;
+  list-style-type: none;
+}
+
+.topbar .regi_sign {
+  color: var(--mainRed);
+}
+
+.topbar .menu {
+  color: var(--mainBlack);
+  font-size: 18px;
+}
+
+.mainNav {
+  background: var(--mainBlack);
+}
+
+.mainNav .menu a {
+  color: var(--mainWhite) !important;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.logo {
+  color: #d41447 !important;
+  text-transform: uppercase;
+  font-size: 35px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-right: 60px;
+}
+
+.product-box {
   text-align: center;
+  border:3px solid #f0f2f7;
+  box-shadow: 3px 4px 6px #e5e7eb;
+ 
+  margin: 20px;
+  
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.buttons {
+  background: var(--mainRed);
+  border-color: var(--mainRed);
+  font-weight: 500;
+  margin-bottom: 20px;
+  clear: both;
+  color: var(--mainWhite) !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.prod-img {
+  margin-top: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.prod-name {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  margin-top: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.prod-price {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 20px;
+  margin-top: 20px;
+  color: var(--mainRed)
+}
+
+.sizes .list {
+  margin-left: -40px;
+ 
+}
+
+.clear {
+  clear: both;
+}
+
+.sizes  li {
+  float: left;
+  padding: 3px;
+  margin-right:10px;
+  list-style: none;
+  width: 30px;
+  background: #333;
+  font-size: 12px;
+  color: #e5e7eb;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 3px;
+ 
+}
+.sizes  li:hover {
+  background: var(--mainRed)
 }
