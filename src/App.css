@@ -115,3 +115,10 @@
 .p_description {
   width:400px;
 }
+
+.cart-sign {
+  color: var(--mainWhite);
+  font-size: 30px;
+  text-align: right;
+  cursor: pointer;
+}

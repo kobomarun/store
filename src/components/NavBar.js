@@ -13,27 +13,29 @@ const NavBar = () => {
                             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>
                             </button>
-                            <ProductConsumer>
-                                {value => {
-                                    console.log('dep', value.departments)
-                                    return (
-                                        value.departments.map(menu => {
+
+                            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul className="navbar-nav mr-auto menu">
+                                    <ProductConsumer>
+                                        {value => {
                                             return (
-                                                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                                                    <ul className="navbar-nav mr-auto menu">
+                                                value.departments.map(menu => {
+                                                    return (
                                                         <li className="nav-item ">
                                                             <Link className="nav-link" to="#">{menu.name} <span className="sr-only">(current)</span></Link>
                                                         </li>
-                                                    </ul>
-                                                </div>
+
+                                                    )
+                                                })
 
                                             )
-                                        })
+                                        }}
 
-                                    )
-                                }}
+                                    </ProductConsumer>
+                                    <li className="nav-item cart-sign"><span className="fa fa-cart-plus"></span></li>
+                                </ul>
+                            </div>
 
-                            </ProductConsumer>
                         </nav>
                     </div>
                 </div>
