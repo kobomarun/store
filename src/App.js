@@ -7,7 +7,7 @@ import TopBar from './components/TopBar';
 import NavBar from './components/NavBar';
 import ProductList from './components/ProductList';
 import SideBar from './components/SideBar';
-// import Cart from './components/Cart';
+import Cart from './components/Cart';
 import Details from './components/Details';
 
 class App extends React.Component {
@@ -20,7 +20,7 @@ class App extends React.Component {
         <NavBar />
         <Switch>
           <Route exact path="/details/:id" component={Details} />
-          {/* <Route path="/cart" component={Cart} /> */}
+          <Route path="/cart" component={Cart} />
           <div className="container row m-4 bg">
             <SideBar />
             <Route exact path="/" component={ProductList} />

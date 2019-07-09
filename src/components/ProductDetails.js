@@ -50,10 +50,10 @@ class ProductDetails extends React.Component {
                                     width="350"
                                 />
                                 <div className="clear mt-5">
-                                    <Link to="/" className="buttons btn btn-primary" >Continue Shopping</Link>
+                                    <Link to="/" className="btn btn-primary" >Continue Shopping</Link>
                                 </div>
                             </div>
-                            <div className="col-md-8">
+                            <div className="col-md-4">
                                 <h3 className="prod-name">{product.name}</h3>
                                 <p className="prod-price">{`£${product.price}`}</p>
                                 <div className="sizes">
@@ -70,6 +70,31 @@ class ProductDetails extends React.Component {
                                 </div>
                                 <div className="clear mt-5">
                                     <button className="buttons btn btn-primary" onClick={() => this.handleCart(product)}>Add to cart</button>
+                                </div>
+
+                            </div>
+                            <div className="col-md-4">
+                                <div className="clear mt-5 float-right">
+                                    <table className="table">
+                                        <thead>
+                                            <th>Product Name</th>
+                                            <th>Price</th>
+                                        </thead>
+
+                                        <tbody>
+                                            {this.state.newCart.map(cart => {
+                                                return (
+                                                    <tr>
+                                                        <td>{cart.name}</td>
+                                                        <td>{cart.price}</td>
+                                                    </tr>
+                                                )
+                                            })}
+                                        </tbody>
+                                    </table>
+
+
+                                    <Link to="/cart" className="btn btn-info" >View Your Cart</Link>
                                 </div>
                             </div>
                         </div>
