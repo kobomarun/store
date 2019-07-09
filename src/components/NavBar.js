@@ -21,18 +21,17 @@ const NavBar = () => {
                                             return (
                                                 value.departments.map(menu => {
                                                     return (
-                                                        <li className="nav-item ">
+                                                        <li className="nav-item " key={menu.name}>
                                                             <Link className="nav-link" to="#">{menu.name} <span className="sr-only">(current)</span></Link>
                                                         </li>
 
                                                     )
-                                                })
+                                                }),
+                                                <li className="nav-item cart-sign float-right"><span className="fa fa-cart-plus"><span className="badge">{value.cart.length}</span></span></li>
 
-                                            )
+                                            );
                                         }}
-
                                     </ProductConsumer>
-                                    <li className="nav-item cart-sign"><span className="fa fa-cart-plus"></span></li>
                                 </ul>
                             </div>
 

@@ -8,7 +8,8 @@ class ProductProvider extends React.Component {
         super(props);
         this.state = {
             products: [],
-            departments: []
+            departments: [],
+            cart: JSON.parse(localStorage.getItem('cart')) || []
         }
 
         this.getAllAproducts = this.getAllAproducts.bind(this);
@@ -51,7 +52,6 @@ class ProductProvider extends React.Component {
         })
     }
     render() {
-        console.log('mee', this.state.products)
         return (
             <ProductContext.Provider value={this.state}>
                 {this.props.children}

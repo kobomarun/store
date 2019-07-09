@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class ProductDetails extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            cart: [],
+            newCart: JSON.parse(localStorage.getItem('cart')) || [],
             products: []
         }
         this.handleCart = this.handleCart.bind(this);
@@ -20,18 +21,20 @@ class ProductDetails extends React.Component {
         return null;
     }
 
-    handleCart(id) {
-        const inCart = this.state.products.find(item => item.product_id == id);
+    componentDidUpdate() {
+        localStorage.setItem("cart", JSON.stringify(this.state.newCart))
+    }
+
+    handleCart(product) {
+        //const inCart = this.state.products.find(item => item.product_id == id);
+
         this.setState({
-            cart: this.state.cart.concat(inCart)
+            newCart: this.state.newCart.concat(product)
         })
-        localStorage.setItem('cart', this.state.cart)
-
-
+        alert(`${product.name} has been added to your cart`)
     }
 
     render() {
-        console.log('cart', this.state.cart)
         const { details, id } = this.props;
         return (
             <div className="container mt-5">
@@ -42,11 +45,13 @@ class ProductDetails extends React.Component {
                         <div className="row" key={product.product_id}>
                             <div className="col-md-4 p-3">
                                 <img
-                                    src={`product_images/${product.thumbnail}`}
-                                    alt=""
-                                    className=""
-                                    width="300"
+                                    src={`/product_images/${product.thumbnail}`}
+                                    alt={product.name}
+                                    width="350"
                                 />
+                                <div className="clear mt-5">
+                                    <Link to="/" className="buttons btn btn-primary" >Continue Shopping</Link>
+                                </div>
                             </div>
                             <div className="col-md-8">
                                 <h3 className="prod-name">{product.name}</h3>
@@ -64,7 +69,7 @@ class ProductDetails extends React.Component {
                                     <p>{product.description}</p>
                                 </div>
                                 <div className="clear mt-5">
-                                    <button className="buttons btn btn-primary" onClick={() => this.handleCart(product.product_id)}>Add to cart</button>
+                                    <button className="buttons btn btn-primary" onClick={() => this.handleCart(product)}>Add to cart</button>
                                 </div>
                             </div>
                         </div>
