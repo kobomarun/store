@@ -7,7 +7,7 @@ const Product = (props) => {
             {props.products.map(item => {
                 return (
 
-                    <div className="col-md-3 product-box">
+                    <div className="col-md-3 product-box" key={item.product_id}>
                         <div className="prod-img">
                             <Link to={`/details/${item.product_id}`}>
                                 <img

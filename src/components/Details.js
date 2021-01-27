@@ -9,9 +9,7 @@ const Details = (props) => {
         <div className="col-md-12">
             <ProductConsumer>
                 {value => {
-
                     return (<ProductDetails details={value} id={props.match.params.id} />)
-
 
                 }}
             </ProductConsumer>
